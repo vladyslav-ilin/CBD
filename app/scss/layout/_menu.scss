@@ -1,0 +1,46 @@
+.menu{
+  position: relative;
+  &__wrapper{
+    width: 0;
+    @include pos(fixed, 0 ,false, -100%, $z: 50);
+    transition: all .5s ease;
+    background: rgba(0,0,0,0);
+    opacity: 0;
+    &--open{
+      @include size(100%);
+      padding: 20px;
+      left: 0;
+      background: rgba(0,0,0,.8);
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    &__navigation{
+      @include pos()
+    }
+  }
+  &__item,
+  &__list{
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px){
+  .menu{
+    border-bottom: 1px solid rgba(255,255,255,.7);
+    &__wrapper{
+      width: 100%;
+      opacity: 1;
+      display: flex;
+      justify-content: space-between;
+      
+    }
+    &__navigation,
+    &__btn{
+      display: flex;
+    }
+  }
+}

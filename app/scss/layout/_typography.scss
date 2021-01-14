@@ -1,0 +1,10 @@
+.logo{
+  @include pos($t: 20px, $r: 50%);
+}
+
+@media (min-width: 768px){
+  .logo{
+    @include pos(relative, $t: auto, $r: auto);
+    position: relative;
+  }
+}
