@@ -1,0 +1,55 @@
+.accordion {
+  background: #f7f8f3;
+  padding-bottom: 150px;
+  &__wrapper {
+    margin: 0 auto;
+  }
+  &__title {
+    font-size: 30px;
+    color: $dark;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  &__header {
+    padding: 25px;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 2px solid #eaedde;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 1.35px;
+    color: $tabs;
+    padding-left: 50px;
+    position: relative;
+    &--first {
+      border-top: 2px solid #eaedde;
+    }
+    &::before,
+    &::after {
+      @include align($pos: absolute);
+      left: 0;
+      background: $tabs;
+      content: "";
+    }
+    &::before {
+      @include size(20px, 1px);
+    }
+    &::after {
+      @include size(2px, 20px);
+      left: 9px;
+    }
+    &--active{
+      border-bottom-color: transparent;
+    }
+  }
+  &__body {
+    padding: 20px 45px;
+    font: 300 18px/40px $font;
+    letter-spacing: 0.72px;
+    color: #000;
+    &--active{
+      border-bottom: 2px solid #eaedde;
+    }
+  }
+}

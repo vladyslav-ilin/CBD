@@ -1,5 +1,73 @@
-.header{
-  background: url('../images/header-bg.jpg') no-repeat;
+.header {
+  background: url("../images/header.jpg") no-repeat;
   background-size: cover;
   min-height: 100vh;
+  position: relative;
+  &__wrapper {
+    text-align: right;
+    margin-top: 17vh;
+  }
+  &__title {
+    font-size: 55px;
+    letter-spacing: 15.4px;
+    text-transform: uppercase;
+    color: $text;
+    line-height: 75px;
+    margin-bottom: 20px;
+  }
+  &__subtitle {
+    font-size: 24px;
+    letter-spacing: 6.72px;
+    margin-bottom: 55px;
+    font-weight: 300;
+    color: $text;
+  }
+  &__products {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 5.04px;
+    color: $text;
+    transition: all 0.3s ease;
+    &--icon {
+      font-size: 11px;
+    }
+    &:hover {
+      color: $hover;
+    }
+  }
+  &__arrow {
+    @include align(false, true, absolute);
+    bottom: 60px;
+    font-size: 15px;
+    color: #fff;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $hover;
+      font-size: 20px;
+    }
+  }
+  &__text {
+    @include pos($b: 100px, $l: 55px);
+    font-size: 26px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2.08px;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    &::before {
+      @include size(2px, 80px);
+      @include pos($b: 265px, $l: 18px);
+      content: "";
+      background: #fff;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__title {
+      font-size: 30px;
+      line-height: 46px;
+    }
+  }
 }

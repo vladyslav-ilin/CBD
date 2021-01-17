@@ -1,0 +1,75 @@
+.tabs {
+  background: #f7f8f3;
+  padding-bottom: 140px;
+  &__item {
+    display: flex;
+  }
+  &__list {
+    margin-right: 90px;
+
+    position: relative;
+    &::before {
+      width: 0;
+      @include pos($b: -22px, $l: -15px);
+      content: "";
+      background: $dark;
+      transition: all 0.3s ease;
+    }
+    &:hover {
+      .tabs__link {
+        color: $dark;
+      }
+      &::before {
+        @include size(calc(100% + 20px), 2px);
+      }
+    }
+    &--active {
+      &::before {
+        @include size(calc(100% + 20px), 2px);
+      }
+    }
+  }
+  &__wrapper {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+  &__link {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: $dark;
+    letter-spacing: 6px;
+    transition: all 0.3s ease;
+  }
+  &__item {
+    border-bottom: 2px solid $hover;
+    padding-bottom: 20px;
+    margin-bottom: 80px;
+  }
+
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title{
+    font-size: 24px;
+    letter-spacing: 4.8px;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 45px;
+  }
+  &__text{
+    color: $tabs;
+    font: 300 18px/40px $font;
+    letter-spacing: 0.72px;
+    &:not(:last-child){
+      margin-bottom: 60px;
+    }
+  }
+  &__img{
+    margin-bottom: 30px;
+  }
+}

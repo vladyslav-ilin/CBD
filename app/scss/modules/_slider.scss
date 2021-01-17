@@ -1,0 +1,99 @@
+.slider {
+  position: relative;
+  &__item {
+    position: relative;
+    &::before {
+      @include size(100%);
+      @include pos($t: 0, $l: 0, $r: 0, $b: 0);
+      content: "";
+      background: rgba(28, 32, 11, 0.6);
+      z-index: 1;
+    }
+    &--first {
+      background: url("../../images/testimonials/1.jpg") no-repeat;
+      background-size: cover;
+    }
+    &--second{
+      background: url("../../images/testimonials/2.jpg") no-repeat;
+      background-size: cover;
+    }
+    &--third{
+      background: url("../../images/testimonials/3.jpg") no-repeat;
+      background-size: cover;
+    }
+  }
+  &__content {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  &__stars {
+    margin-bottom: 35px;
+  }
+  &__star {
+    color: #aab384;
+  }
+  &__text {
+    font: 300 22px/40px $font;
+    letter-spacing: 4.3px;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  &__name {
+    position: relative;
+    font-size: 24px;
+    letter-spacing: 4.8px;
+    color: #fff;
+    text-transform: uppercase;
+    padding-left: 65px;
+    display: inline-block;
+    &::before {
+      @include size(45px, 2px);
+      @include align($pos: absolute);
+      content: "";
+      left: 0;
+      background: #fff;
+    }
+  }
+  &__logo {
+    @include pos($b: 50px, $l: 60px);
+    font-weight: 300;
+    font-size: 24px;
+    color: $text;
+    letter-spacing: 6.72px;
+    writing-mode: vertical-lr;
+    z-index: 5;
+    text-transform: uppercase;
+  }
+  &__arrows {
+    @include align(false, true, absolute);
+    bottom: 0;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    border: 1px solid #fff;
+    border-bottom: none;
+    align-items: center;
+    &::before {
+      @include size(1px, 100%);
+      @include pos($t: 0, $l: 50%);
+      content: "";
+      background: #fff;
+      z-index: 10;
+    }
+  }
+  &__arrow {
+    padding: 30px 45px;
+    &-icon {
+      color: #fff;
+    }
+  }
+  &__prev {
+    transform: rotate(180deg);
+  }
+}

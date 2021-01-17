@@ -1,46 +1,156 @@
-.menu{
-  position: relative;
-  &__wrapper{
+.menu {
+  @include size(100%, 50px);
+  &__wrapper {
     width: 0;
-    @include pos(fixed, 0 ,false, -100%, $z: 50);
-    transition: all .5s ease;
-    background: rgba(0,0,0,0);
+    @include pos(fixed, 0, false, -100%, $z: 50);
+    transition: all 0.5s ease;
+    background: rgba(0, 0, 0, 0);
     opacity: 0;
-    &--open{
-      @include size(100%);
-      padding: 20px;
-      left: 0;
-      background: rgba(0,0,0,.8);
-      opacity: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+  }
+  // @include pos($pos: fixed, $t: 0, $l: 0);
+  @media (max-width: 768px) {
+    .menu {
+      &__wrapper {
+        &--open {
+          @include size(100%);
+          padding: 20px;
+          left: 0;
+          background: rgba(0, 0, 0, 0.8);
+          opacity: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+      }
     }
-    &__navigation{
-      @include pos()
+
+    &__navigation {
+      @include pos($t: 50%, $l: 50%);
+      color: #fff;
+      a{
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__logo{
+    @include pos($t: 0%, $l: 50%);
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  &__btn{
+    color: #fff;
+    a{
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
   }
   &__item,
-  &__list{
+  &__list {
     margin-bottom: 20px;
   }
 }
 
-@media (min-width: 768px){
-  .menu{
-    border-bottom: 1px solid rgba(255,255,255,.7);
-    &__wrapper{
-      width: 100%;
+@media (min-width: 768px) {
+  .menu {
+    position: relative;
+    &__wrapper {
+      @include size(100%, 80px);
       opacity: 1;
       display: flex;
       justify-content: space-between;
-      
+      // align-items: center;
+      // padding: 25px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     }
     &__navigation,
-    &__btn{
+    &__btn {
       display: flex;
+    }
+    &__navigation {
+      padding-left: 60px;
+    }
+    &__scroll {
+      .menu__wrapper {
+        background: #fff;
+      }
+    }
+    &__item {
+      margin-right: 45px;
+    }
+    &__link,
+    &__log {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 0.96px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      line-height: 80px;
+    }
+    
+    &__link{
+      position: relative;
+      margin-bottom: 0;
+      &::before {
+        @include size(0, 2px);
+        @include align(true, true, absolute);
+        content: "";
+        background: $hover;
+        transition: all 0.3s ease;
+      }
+      &:hover {
+        color: #fff;
+        &::before {
+          @include size(calc(100% + 20px), 2px);
+        }
+      }
+      &--active{
+        &::before {
+          @include size(calc(100% + 20px), 2px);
+        }
+      }
+      &--open{
+        color: $dark;
+        &:hover{
+          color: $hover;
+        }
+      }
+    }
+
+    &__list {
+      padding: 0 35px;
+      margin-bottom: 0;
+      border-left: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    &__log{
+      &:hover{
+        color: $hover;
+      }
+      &--search{
+        margin-left: 5px;
+      }
+      &--open{
+        color: $dark
+      }
+    }
+    &__logo{
+      @include align(true, true, absolute);
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #fff;
+      transition: all .3s ease;
+      &:hover{
+        color: $hover;
+      }
+      &--open{
+        color: $dark;
+      }
     }
   }
 }

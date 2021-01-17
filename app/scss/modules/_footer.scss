@@ -1,0 +1,131 @@
+.footer{
+  padding: 30px;
+  padding-top: 110px;
+  &__line{
+    text-align: center;
+    position: relative;
+    &::before,
+    &::after{
+      @include align($pos: absolute);
+      @include size(370px, 1px);
+      content: '';
+      background: $tabs;
+    }
+    &::before{
+      left: 0;
+    }
+    &::after{
+      right: 0;
+    }
+  }
+  &__logo{
+    font-size: 60px;
+    color: $tabs;
+    text-transform: uppercase;
+    margin-bottom: 55px;
+    transition: all .3s ease;
+    &:hover{
+      color: #000;
+    }
+  }
+  &__wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+  &__item{
+    text-align: center;
+  }
+  &__text{
+    font-size: 14px;
+    letter-spacing: 3.92px;
+    color: $tabs;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 25px;
+  }
+  &__social{
+    padding-left: 70px;
+    padding-bottom: 95px;
+    position: relative;
+    &::before{
+      @include size(2px, 95px);
+      @include pos($b: 60px, $l: 150px);
+      content: '';
+      background: $tabs;
+    }
+  }
+  &__items{
+    display: flex;
+    position: relative;
+    padding-bottom: 95px;
+  }
+  &__list{
+    &--marg{
+      margin: 0 60px;
+    }
+  }
+  &__link{
+    color: $tabs;
+    transition: all .3s ease;
+    &:hover{
+      color: #000;
+    }
+  }
+  &__title{
+    font-size: 18px;
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    color: $dark;
+    margin-bottom: 30px;
+  }
+  &__box{
+    text-align: center;
+  }
+  &__form{
+    border: 2px solid $tabs;
+    display: inline-block;
+    margin-bottom: 60px;
+  }
+  &__input{
+    padding: 20px 20px 20px 30px;
+    font: 300 16px $font;
+    letter-spacing: 4.8px;
+    &::placeholder{
+      font: 300 16px $font;
+    letter-spacing: 4.8px;
+    }
+  }
+  &__btn{
+    padding: 20px 30px;
+    color: $dark;
+    position: relative;
+    background: transparent;
+    
+    &::before{
+      @include size(2px, 50px);
+      @include align($pos: absolute);
+      background: $tabs;
+      left: 0;
+      content: '';
+    }
+  }
+&__cpr{
+  font-size: 11px;
+  text-transform: uppercase;
+  color: $tabs;
+  letter-spacing: 3.08px;
+}
+}
+
+@media (max-width: 768px) {
+  .footer{
+    &__line{
+      &::before,
+      &::after{
+        width: 100px;
+      }
+    }
+  }
+}

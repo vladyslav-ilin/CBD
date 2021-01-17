@@ -1,0 +1,32 @@
+.button {
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid rgba(247, 248, 243, 0.4);
+  padding: 25px 100px 25px 40px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-bottom: 50px;
+  &::before {
+    @include size(45px, 2px);
+    @include align($pos: absolute);
+    right: 35px;
+    content: "";
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    color: $hover;
+    padding: 25px 70px;
+    &::before {
+      width: 0;
+    }
+  }
+  &--swiper{
+    background: $tabs;
+    margin-bottom: 0;
+    &:hover{
+      color: #fff;
+    }
+  }
+}
