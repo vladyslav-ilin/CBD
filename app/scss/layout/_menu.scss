@@ -27,7 +27,7 @@
     }
 
     &__navigation {
-      @include pos($t: 50%, $l: 50%);
+      @include pos($b: 100px, $l: 43%);
       color: #fff;
       a{
         color: #fff;
@@ -44,6 +44,7 @@
   }
   &__btn{
     color: #fff;
+
     a{
       color: #fff;
       text-transform: uppercase;
